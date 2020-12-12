@@ -4,12 +4,19 @@ The code of AAAI2021 paper of HGCN for Traffic Forecasting
 This is a document for this code++++++++++++++++++++++++++++++++++++++++++++++++++++++++=>
 
 ***First, the structure of the code:
+
 util.py: The reading of data and other functions except of Model
+
 utils.py: all base blocks and functions of neural network models in our paper
+
 model.py: construct model based on utils.py
+
 engine.py: the program of training model in our paper
+
 train.py: compared models which doesn't deal with Region data
+
 train_h.py: HGCN and HGCN_wdf
+
 ***How to run these files?
 In jupyter ,you should write:
 run train.py --model (you can select, such as gwnet) --force True
