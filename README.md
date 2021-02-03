@@ -25,7 +25,7 @@ run train.py --model (you can select, such as gwnet) --force True
 
 or 
 
-run train_h.py --model (you can select, such as HGCN) --force True
+run train_h.py --model (you can select, such as H_GCN) --force True
 
 If you want to change the dataset from XiAn_city to JiNan_city, I suggest you can directly revise the code in your IDE in train.py or train_h.py
 
