@@ -2,10 +2,11 @@
 Update:
 
 2021/5/11 14:58
-The original data and GPS Coordinate have updated in the Dataset by Baidu Cloud.
-原始的数据和具体的路段起始节点GPS坐标已经在数据种更新，直接重新访问分享的百度网盘连接，即可下载食用 (.V.fen)
+The original data, road GPS Coordinate, and code of Generate Data have updated in the Dataset by Baidu Cloud.
+原始的数据，具体的路段起始节点GPS坐标和生成数据和邻接矩阵的代码已经在数据中更新，直接重新访问分享的百度网盘连接，即可下载食用 (.V.)。。。。。。
 
 分割线_________________________________________________________分割线
+
 The code of AAAI2021 paper of HGCN for Traffic Forecasting
 
 This is a document for this code++++++++++++++++++++++++++++++++++++++++++++++++++++++++=>
