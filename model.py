@@ -226,25 +226,26 @@ class OTSGGCN(nn.Module):
         self.num_nodes=num_nodes
         self.block1=ST_BLOCK_6(in_dim,dilation_channels,num_nodes,tem_size,K,Kt)
         self.block2=ST_BLOCK_6(dilation_channels,dilation_channels,num_nodes,tem_size,K,Kt)
-        
+        self.block3=ST_BLOCK_6(dilation_channels,dilation_channels,num_nodes,tem_size,K,Kt)
         
         self.conv1=Conv2d(dilation_channels,12,kernel_size=(1, tem_size),padding=(0,0),
                           stride=(1,1), bias=True)
         self.supports=supports
         self.bn=BatchNorm2d(in_dim,affine=False)
-        self.h=Parameter(torch.zeros(num_nodes,num_nodes), requires_grad=True)
-        nn.init.uniform_(self.h, a=0, b=0.0001)
+        self.h=Parameter(torch.ones(num_nodes,num_nodes), requires_grad=True)
+        #nn.init.uniform_(self.h, a=0, b=0.0001)
     def forward(self,input):
-        x=self.bn(input)
-        A=self.h+self.supports[0]
+        x=input#self.bn(input)
+        mask=(self.supports[0]!=0).float()
+        A=self.h*mask
         d=1/(torch.sum(A,-1)+0.0001)
         D=torch.diag_embed(d)
         A=torch.matmul(D,A)
         A1=torch.eye(self.num_nodes).cuda()-A
-        A1=F.dropout(A1,0.5)
+       # A1=F.dropout(A1,0.5)
         x=self.block1(x,A1)
         x=self.block2(x,A1)
-        
+        x=self.block3(x,A1)
         x=self.conv1(x)#b,12,n,1
         return x,A1,A1     
     
