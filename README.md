@@ -1,4 +1,10 @@
 # HGCN
+Updata 1:
+
+2022/7/18
+Please Emails:guokan.cn@gmail.com to contact me;
+# 邮箱地址以更换为：guokan.cn@gmail.com。
+
 Update:
 
 2021/5/11 14:58
